@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Pokémon - Cargando</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="loading-page">
+    <div class="loading-container">
+        <h1>Cargando Web Externa de Compra</h1>
+        <div class="pokemon-logo-container">
+            <img src="pokeball.png" alt="Logo Pokémon" class="pokemon-logo">
+        </div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <script>
+        // Simulación de carga
+        document.addEventListener('DOMContentLoaded', () => {
+            const progress = document.querySelector('.loading-progress');
+            let width = 0;
+            
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    window.location.href = 'tienda.php';
+                } else {
+                    width += 2;
+                    progress.style.width = width + '%';
+                }
+            }, 50);
+        });
+    </script>
+</body>
+</html>
