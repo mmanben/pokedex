@@ -67,3 +67,49 @@ header('Content-Type: application/json');
 
 // Devolver resultados en formato JSON
 echo json_encode($pokemon);
+
+
+// Consulta para obtener Pokémon con sus habilidades
+$sql = "SELECT p.*, h.ability_name, h.description 
+        FROM pokemon p
+        LEFT JOIN pokemon_habilidades ph ON p.id = ph.pokemon_id
+        LEFT JOIN habilidades h ON ph.habilidad_id = h.id
+        WHERE 1=1";
+
+// Añadir filtros...
+
+// Procesar resultados agrupando habilidades por Pokémon
+$pokemon = [];
+$pokemonIds = [];
+
+while ($fila = mysqli_fetch_assoc($resultado)) {
+    $pokemonId = $fila['id'];
+    
+    // Si es la primera vez que vemos este Pokémon
+    if (!in_array($pokemonId, $pokemonIds)) {
+        $pokemonIds[] = $pokemonId;
+        $pokemon[$pokemonId] = [
+            'id' => $fila['id'],
+            'name' => $fila['name'],
+            'type1' => $fila['type1'],
+            'type2' => $fila['type2'],
+            'generation' => $fila['generation'],
+            'sprite_url' => $fila['sprite_url'],
+            'habilidades' => []
+        ];
+    }
+    
+    // Añadir habilidad si existe
+    if (!empty($fila['ability_name'])) {
+        $pokemon[$pokemonId]['habilidades'][] = [
+            'nombre' => $fila['ability_name'],
+            'descripcion' => $fila['description']
+        ];
+    }
+}
+
+// Convertir a array indexado para JSON
+$resultado_final = array_values($pokemon);
+
+
+?>

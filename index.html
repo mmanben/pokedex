@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokéWorld - Tu guía Pokémon completa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
@@ -14,10 +15,15 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" alt="PokéWorld Logo">
                 <h1>PokéWorld</h1>
             </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="#home">Inicio</a></li>
-                    <li><a href="#about">Acerca de</a></li>
+                    <li><a href="#home" class="nav-link" data-section="home">Inicio</a></li>
+                    <li><a href="busqueda.html">Pokedex</a></li>
+                    <li><a href="../testeos/Tienda/cargando.html">Tienda</a></li>
+                    <li><a href="#about" class="nav-link" data-section="about">Acerca de</a></li>
                 </ul>
             </nav>
         </div>
@@ -31,12 +37,90 @@
                 <div class="hero-content">
                     <h2>Bienvenido a PokéWorld</h2>
                     <p>Tu guía completa del mundo Pokémon. Explora nuestra Pokédex avanzada, aprende sobre tipos, movimientos y estrategias para convertirte en el mejor entrenador.</p>
+                    <a href="busqueda.html" class="cta-button">Explorar Pokédex</a>
                 </div>
                 <div class="hero-image">
                     <img src="./assets/img/destacados.png" alt="Pokémon Destacados">
                 </div>
             </div>
+
+            <div class="features">
+                <div class="feature-card card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Pokédex Completa</h3>
+                    <p>Información detallada de los 100 primeros Pokémon, incluyendo estadísticas, tipos, habilidades y más.</p>
+                </div>
+                <div class="feature-card card">
+                    <div class="feature-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Guía de Tipos</h3>
+                    <p>Descubre las fortalezas y debilidades de cada tipo de Pokémon para planificar tus estrategias de batalla.</p>
+                </div>
+                <div class="feature-card card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Movimientos</h3>
+                    <p>Explora una lista completa de movimientos Pokémon, su potencia, precisión y efectos especiales.</p>
+                </div>
+            </div>
         </section>
+
+        <!-- Pokedex Section -->
+        <section id="pokedex" class="section">
+            <div class="section-header">
+                <h2>Pokédex</h2>
+                <p>Explora nuestra colección de los 100 primeros Pokémon. Usa los filtros para encontrar fácilmente el Pokémon que buscas.</p>
+            </div>
+
+            <div class="search-section">
+                <input type="text" id="pokemonSearch" placeholder="Buscar por nombre o número...">
+                <select id="typeFilter">
+                    <option value="">Todos los tipos</option>
+                    <option value="normal">Normal</option>
+                    <option value="fire">Fuego</option>
+                    <option value="water">Agua</option>
+                    <option value="electric">Eléctrico</option>
+                    <option value="grass">Planta</option>
+                    <option value="ice">Hielo</option>
+                    <option value="fighting">Lucha</option>
+                    <option value="poison">Veneno</option>
+                    <option value="ground">Tierra</option>
+                    <option value="flying">Volador</option>
+                    <option value="psychic">Psíquico</option>
+                    <option value="bug">Bicho</option>
+                    <option value="rock">Roca</option>
+                    <option value="ghost">Fantasma</option>
+                    <option value="dragon">Dragón</option>
+                    <option value="dark">Siniestro</option>
+                    <option value="steel">Acero</option>
+                    <option value="fairy">Hada</option>
+                
+                </select>
+                <button id="searchButton"><i class="fas fa-search"></i> Buscar</button>
+            </div>
+
+            <div class="pokemon-grid" id="pokemonGrid">
+                <!-- Los Pokémon se cargarán aquí dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Type Guide Section -->
+        <section id="type-guide" class="section">
+            <div class="section-header">
+                <h2>Guía de Tipos</h2>
+                <p>Conoce las fortalezas y debilidades de cada tipo de Pokémon para optimizar tus estrategias de combate.</p>
+            </div>
+
+            <div class="type-grid" id="typeGrid">
+                <!-- Los tipos se cargarán aquí dinámicamente -->
+            </div>
+        </section>
+
+ 
 
         <!-- About Section -->
         <section id="about" class="section">
@@ -46,11 +130,68 @@
 
             <div class="about-content card">
                 <p>PokéWorld es una plataforma dedicada a proporcionar información completa y detallada sobre el universo Pokémon. Nuestro objetivo es ayudar a entrenadores de todos los niveles a mejorar sus conocimientos y estrategias.</p>
-                <p>Este proyecto fue creado con pasión por fans de Pokémon para la comunidad.</p>
+                <p>Este proyecto fue creado con pasión por fans de Pokémon para la comunidad. Utilizamos datos verificados y actualizados regularmente para garantizar la precisión de nuestra información.</p>
+                <p>Si tienes sugerencias o comentarios, no dudes en contactarnos. ¡Estamos comprometidos a mejorar constantemente!</p>
+
+                <div class="team-section">
+                    <h3>Nuestro Equipo</h3>
+                    <div class="team-grid">
+                        <div class="team-member card">
+                            <img src="./assets/img/default_profile.png" alt="Miembro 1">
+                            <h4>Martín Cantero</h4>
+                            <p>Fundador & Desarrollador FrontEnd</p>
+                        </div>
+                        <div class="team-member card">
+                            <img src="./assets/img/default_profile.png" alt="Miembro 2">
+                            <h4>Irene Gonzalez</h4>
+                            <p>Fundadora & Gestora base de datos</p>
+                        </div>
+                        <div class="team-member card">
+                            <img src="./assets/img/default_profile.png" alt="Miembro 3">
+                            <h4>María Manzano</h4>
+                            <p>Fundadora & Desarrolladora Backend</p>
+                        </div>
+                    <div class="team-member card">
+                            <img src="./assets/imagenes/chema.png" alt="Miembro 4">
+                            <h4>ChemarIA</h4>
+                            <p>Extrabajador - Desaparecido en combate</p>
+                        </div>
+                        <div class="team-member card">
+                            <img src="./assets/imagenes/aaron.png   " alt="Miembro 5">
+                            <h4>Aaron</h4>
+                            <p>El ser de luz que nos proporciona Internet para este proyecto</p>
+                        </div>
+                        <div class="team-member card">
+                            <img src="./assets/imagenes/claude.png" alt="Miembro 5">
+                            <h4>Claude AI</h4>
+                            <p>Redacción y asistencia de código</p>
+                        </div>
+                        <div class="team-member card">
+                            <img src="./assets/imagenes/chatgpt.png" alt="Miembro 5">
+                            <h4>ChatGPT</h4>
+                            <p>Redacción y asistencia de código</p>
+                        </div>
+                        <div class="team-member card">
+                            <img src="./assets/imagenes/copilot.png" alt="Miembro 5">
+                            <h4>GitHub Copilot</h4>
+                            <p>Redacción y asistencia de código</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- Modal para detalles de Pokémon -->
+    <div class="modal-overlay" id="pokemonModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal"><i class="fas fa-times"></i></button>
+            <div class="pokemon-detail" id="pokemonDetail">
+                <!-- Detalles del Pokémon seleccionado -->
+            </div>
+        </div>
+    </div>
+                                                                                                 <br>       <br>       <br>       <br>       <br>       <br>       <br>
     <!-- Footer -->
     <footer>
         <div class="footer-container">
@@ -59,12 +200,116 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" alt="PokéWorld Logo">
                     <h2>PokéWorld</h2>
                 </div>
-                <p>Tu guía completa del mundo Pokémon.</p>
+                <p>Tu guía completa del mundo Pokémon. Explora, aprende y conviértete en el mejor entrenador.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#home" class="nav-link" data-section="home">Inicio</a></li>
+                    <li><a href="busqueda.html">Pokedex</a></li>
+                    <li><a href="../testeos/Tienda/cargando.html">Tienda</a></li>
+                    <li><a href="#about" class="nav-link" data-section="about">Acerca de</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <div class="contact-info">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>info@pokeworld.com</div>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div>+34 123 456 789</div>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>Ciudad Luminalia, Kalos</div>
+                </div>
             </div>
         </div>
         <div class="copyright">
             <p>&copy; 2025 PokéWorld. Todos los derechos reservados.</p>
         </div>
     </footer>
-</body>
+
+    <!-- JavaScript para la navegación -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Por defecto, ocultar todas las secciones excepto la primera
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link, [data-section]');
+        
+        // Función para mostrar una sección específica
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Mostrar la sección solicitada
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.style.display = 'block';
+                
+                // Actualizar clase activa en navegación
+                navLinks.forEach(link => {
+                    if (link.getAttribute('data-section') === sectionId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+                
+                // Actualizar URL
+                history.pushState(null, null, '#' + sectionId);
+                
+                // Desplazarse suavemente hacia arriba
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Comprobar si hay un hash en la URL al cargar
+        const initialSection = window.location.hash ? window.location.hash.substring(1) : 'home';
+        showSection(initialSection);
+        
+        // Añadir event listeners a todos los enlaces de navegación
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+                if (sectionId) {
+                    showSection(sectionId);
+                }
+            });
+        });
+        
+        // Manejar navegación con botones atrás/adelante del navegador
+        window.addEventListener('popstate', function() {
+            const section = window.location.hash ? window.location.hash.substring(1) : 'home';
+            showSection(section);
+        });
+        
+        // Manejar el menú móvil
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenu.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    });
+    </script>
+    
+    <!-- Script para cargar datos dinámicamente -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</body> 
 </html>

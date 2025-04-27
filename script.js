@@ -19,6 +19,7 @@ $(document).ready(function() {
         // Obtener valores de los filtros
         const nombre = $('#pokemonSearch').val();
         const tipo = $('#typeFilter').val();
+        const generacion = $('#generationFilter').val();
         
         // Mostrar indicador de carga
         $('#pokemonGrid').html('<div class="loading">Cargando...</div>');
@@ -29,7 +30,8 @@ $(document).ready(function() {
             type: 'POST',
             data: {
                 nombre: nombre,
-                tipo: tipo
+                tipo: tipo,
+                generacion: generacion
             },
             success: function(response) {
                 // Limpiar el grid
@@ -57,6 +59,11 @@ $(document).ready(function() {
                         // Añadir tipos
                         const tiposDiv = $('<div class="pokemon-types"></div>');
                         tiposDiv.append(`<span class="type-badge ${pokemon.type1}">${pokemon.type1}</span>`);
+                        
+                        // Añadir segundo tipo si existe
+                        if (pokemon.type2) {
+                            tiposDiv.append(`<span class="type-badge ${pokemon.type2}">${pokemon.type2}</span>`);
+                        }
                         
                         card.append(tiposDiv);
                         
