@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex - Proyecto Intermodular</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" alt="Pokeball Logo">
+            <h1><a href="index.html">Pokédex</a></h1>
+        </div>
+
+    </header>
+
+    <main>
+        <section class="search-section">
+            <h2>Busca tu Pokémon</h2>
+            <div class="search-container">
+                <input type="text" id="pokemonSearch" placeholder="Buscar por nombre...">
+                <select id="typeFilter">
+                    <option value="">Todos los tipos</option>
+                    <option value="normal">Normal</option>
+                    <option value="fire">Fuego</option>
+                    <option value="water">Agua</option>
+                    <option value="electric">Eléctrico</option>
+                    <option value="grass">Planta</option>
+                    <option value="ice">Hielo</option>
+                    <option value="fighting">Lucha</option>
+                    <option value="poison">Veneno</option>
+                    <option value="ground">Tierra</option>
+                    <option value="flying">Volador</option>
+                    <option value="psychic">Psíquico</option>
+                    <option value="bug">Bicho</option>
+                    <option value="rock">Roca</option>
+                    <option value="ghost">Fantasma</option>
+                    <option value="dragon">Dragón</option>
+                    <option value="dark">Siniestro</option>
+                    <option value="steel">Acero</option>
+                    <option value="fairy">Hada</option>
+                </select>
+                <select id="generationFilter">
+                    <option value="">Todas las generaciones</option>
+                    <option value="1">Generación 1</option>
+                    <option value="2">Generación 2</option>
+                    <option value="3">Generación 3</option>
+                    <option value="4">Generación 4</option>
+                    <option value="5">Generación 5</option>
+                    <option value="6">Generación 6</option>
+                    <option value="7">Generación 7</option>
+                    <option value="8">Generación 8</option>
+                </select>
+                <button id="searchButton">Buscar</button>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <h2>Resultados</h2>
+            <div id="pokemonGrid" class="pokemon-grid">
+                <!-- Aquí se mostrarán los resultados dinámicamente -->
+            </div>
+            <div id="noResults" class="no-results" style="display: none;">
+                <p>No se ha encontrado ningún Pokémon con ese criterio.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Pokédex - Proyecto Intermodular</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
